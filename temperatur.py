@@ -17,12 +17,6 @@ DEBUG = os.environ["DEBUG"] or false
 # initialize api client
 api = xively.XivelyAPIClient(API_KEY)
  
-# function to read 1 minute load average from system uptime command
-def read_loadavg():
-  if DEBUG:
-    print "Reading temperature"
-  return subprocess.check_output(["awk '{print $1}' /proc/loadavg"], shell=True)
-
 def read_temp():  
 	while(True):
 	# Run the DHT program to get the humidity and temperature readings!
