@@ -21,7 +21,7 @@ def read_temp():
 	while(True):
 	# Run the DHT program to get the humidity and temperature readings!
 
-		output = subprocess.check_output(["/home/pi/Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "11", "4"]);
+		output = subprocess.check_output(["sudo", "/home/pi/Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "11", "4"]);
 		print output
 		matches = re.search("Temp =\s+([0-9.]+)", output)
 		if (not matches):
