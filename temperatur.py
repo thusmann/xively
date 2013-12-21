@@ -43,16 +43,17 @@ def read_temp():
  
 # function to return a datastream object. This either creates a new datastream,
 # or returns an existing one
-def get_datastream(feed):
+
+def get_datastream(feed, channel, tag):
   try:
-    datastream = feed.datastreams.get("temp")
+    datastream = feed.datastreams.get(channel)
     if DEBUG:
       print "Found existing datastream"
     return datastream
   except:
     if DEBUG:
       print "Creating new datastream"
-    datastream = feed.datastreams.create("temp", tags="temp_01")
+    datastream = feed.datastreams.create(channel, tags=tag)
     return datastream
  
 # main program entry point - runs continuously updating our datastream with the
@@ -62,7 +63,7 @@ def run():
  
   feed = api.feeds.get(FEED_ID)
  
-  datastream = get_datastream(feed)
+  datastream = get_datastream(feed, "temp", "temp_01")
   datastream.max_value = None
   datastream.min_value = None
  
