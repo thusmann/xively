@@ -60,12 +60,13 @@ def get_datastream(feed, channel, tag):
 # current 1 minute load average
 def run():
   print "Starting Xively tutorial script"
- 
+  
   feed = api.feeds.get(FEED_ID)
- 
-  datastream = get_datastream(feed, "temp", "temp_01")
-  datastream.max_value = None
-  datastream.min_value = None
+  channels = ["temp"]
+  for channel in channels:
+          datastream = get_datastream(feed, channel, "temp_01")
+          datastream.max_value = None
+          datastream.min_value = None
  
   while True:
     temp = read_temp()
