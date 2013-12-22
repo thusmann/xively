@@ -82,21 +82,21 @@ def run():
 		print temp
 		print humidity
 	
-	if DEBUG:
-		print "Updating Xively feed with value: %s" % temp
-		print "Updating Xively feed with value: %s" % humidity
-	
-	tempStream.current_value = temp
-	tempStream.at = datetime.datetime.utcnow()
-	
-	humStream.current_value = humidity
-	humStream.at = datetime.datetime.utcnow()
-	try:
-		tempStream.update()
-		humStream.update()
-	except requests.HTTPError as e:
-		print "HTTPError({0}): {1}".format(e.errno, e.strerror)
-	
-	time.sleep(30)
+		if DEBUG:
+			print "Updating Xively feed with value: %s" % temp
+			print "Updating Xively feed with value: %s" % humidity
+		
+		tempStream.current_value = temp
+		tempStream.at = datetime.datetime.utcnow()
+		
+		humStream.current_value = humidity
+		humStream.at = datetime.datetime.utcnow()
+		try:
+			tempStream.update()
+			humStream.update()
+		except requests.HTTPError as e:
+			print "HTTPError({0}): {1}".format(e.errno, e.strerror)
+		
+		time.sleep(30)
  
 run()
