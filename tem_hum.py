@@ -46,7 +46,7 @@ def read_temp():
 
 def get_datastream(feed, channel, tag):
 	try:
-	datastream = feed.datastreams.get(channel)
+		datastream = feed.datastreams.get(channel)
 	if DEBUG:
 		print "Found existing datastream"
 	return datastream
