@@ -63,11 +63,11 @@ def run():
 	
 	feed = api.feeds.get(FEED_ID)
 	#channels = ["temp"]
-	tempStream = get_datastream(feed, temp, "temp_01")
+	tempStream = get_datastream(feed, "temp", "temp_01")
 	tempStream.max_value = None
 	tempStream.min_value = None
 	
-	humStream = get_datastream(feed, hum, "hum_01")
+	humStream = get_datastream(feed, "hum", "hum_01")
 	humStream.max_value = None
 	humStream.min_value = None
 		
