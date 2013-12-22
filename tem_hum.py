@@ -78,7 +78,7 @@ def run():
 	#	datastream.min_value = None
  
 	while True:
-	temp, humidity = read_temp()
+		temp, humidity = read_temp()
 	
 	if DEBUG:
 		print "Updating Xively feed with value: %s" % temp
@@ -93,7 +93,7 @@ def run():
 		tempStream.update()
 		humStream.update()
 	except requests.HTTPError as e:
-	print "HTTPError({0}): {1}".format(e.errno, e.strerror)
+		print "HTTPError({0}): {1}".format(e.errno, e.strerror)
 	
 	time.sleep(30)
  
