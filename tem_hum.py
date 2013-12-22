@@ -79,6 +79,8 @@ def run():
  
 	while True:
 		temp, humidity = read_temp()
+		print temp
+		print humidity
 	
 	if DEBUG:
 		print "Updating Xively feed with value: %s" % temp
