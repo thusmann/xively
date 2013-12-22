@@ -47,14 +47,14 @@ def read_temp():
 def get_datastream(feed, channel, tag):
 	try:
 		datastream = feed.datastreams.get(channel)
-	if DEBUG:
-		print "Found existing datastream"
-	return datastream
+		if DEBUG:
+			print "Found existing datastream"
+		return datastream
 	except:
-	if DEBUG:
-		print "Creating new datastream"
-	datastream = feed.datastreams.create(channel, tags=tag)
-	return datastream
+		if DEBUG:
+			print "Creating new datastream"
+		datastream = feed.datastreams.create(channel, tags=tag)
+		return datastream
  
 # main program entry point - runs continuously updating our datastream with the
 # current 1 minute load average
